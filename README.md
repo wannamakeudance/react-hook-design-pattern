@@ -1,5 +1,6 @@
 
-## useState [useState](#useState)
+## 1. [useState](#useState)
+## 2. [useEffect](#useEffect)
 
 
 <a name="useState"></a>
@@ -8,6 +9,7 @@
 
 ``` javascript
 
+import React, { useState } from 'react';
 const [state, setState] = useState(initialState);
 
 ```
@@ -61,6 +63,26 @@ function useState(initialValue) {
         render();
     }
     return [memorizedState[curIndex++], setState];
+}
+
+```
+
+<a name="useEffect"></a>
+
+### Step1. Similarly, let's see how to use the useEffect in React formlly.
+
+``` javascript
+
+import React, { useState, useEffect } from 'react';
+
+function Clock() {
+    const [count, setCount] = useState(0);
+    useEffect(()=>{
+        console.log(`Show ${count} times.`);
+    });
+    return (
+        <div> Clock Component. Totally {count} times.</div>
+    );
 }
 
 ```
