@@ -90,3 +90,39 @@ function Clock() {
 }
 
 ```
+
+### Step2. As we saw above, useEffect function has a callback parameter and this callback will be executed.
+
+``` javascript
+
+function useEffect(callback) {
+    callback();
+}
+
+```
+
+### Step3. The useEffect function can have a second parameter which should be an array standing for the dependencies. Meanwhile, we should also consider the multiple times to execute useEffect.
+
+``` javascript
+
+let effectQueue = [];
+let index = 0;
+function useEffect(callback, deps) {
+    if (Array.isArray(deps)) {
+        return 'The second parameter should be array.';
+    } else if (!deps)) {
+        callback();
+    } else {
+        const prevDeps = effectQueue[index];
+        const hasChanged = deps.every((dep, index) => {
+            return !(dep === prevDeps[index]);
+        });
+        if (hasChanged) {
+            callback();
+        }
+        effectQueue[index] = deps;        
+    }
+    index++;
+}
+
+```
