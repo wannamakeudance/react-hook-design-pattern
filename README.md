@@ -5,6 +5,8 @@
 
 <a name="useState"></a>
 
+# useState
+
 ### Step1. Firstly, let's see how to use the useState in React formlly.
 
 ``` javascript
@@ -68,6 +70,8 @@ function useState(initialValue) {
 ```
 
 <a name="useEffect"></a>
+
+# useEffect
 
 ### Step1. Similarly, let's see how to use the useEffect in React formlly.
 
